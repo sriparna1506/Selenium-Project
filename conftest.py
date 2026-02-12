@@ -10,3 +10,12 @@ def driver(request):
 
     yield driver
     driver.quit()
+@pytest.fixture
+def seconddriver():
+    driver=webdriver.Chrome()
+    driver.maximize_window()
+    driver.get("https://www.saucedemo.com/")
+    print(driver.title)
+    print(driver.current_url)
+    yield driver
+    driver.quit()
